@@ -83,3 +83,58 @@ def multiplier(n: float) -> Callable[[float], float]:
     def inner(x: float) -> float:
         return x * n
     return inner
+
+
+
+# -------------------------------
+# Exercise 4 and 5 : Student Class
+# -------------------------------
+
+class Student:
+    """
+    A class representing a student with basic attributes and methods 
+    to display and update their grade.
+
+    Attributes:
+        name (str): The student's name.
+        age (int): The student's age.
+        grade (float): The student's current grade.
+    """
+
+    def __init__(self, name: str, age: int, grade: float):
+        """
+        Initialize a Student instance with name, age, and grade.
+
+        Parameters:
+            name (str): The student's name.
+            age (int): The student's age.
+            grade (float): The student's initial grade.
+        """
+        self.name = name
+        self.age = age
+        self.grade = grade
+
+    def display_info(self):
+        """
+        Display the student's information in a readable format.
+
+        Prints:
+            Name, age, and grade of the student.
+        """
+        print(f"Name: {self.name}, Age: {self.age}, Grade: {self.grade}")
+
+    def update_grade(self, new_grade: float):
+        """
+        Update the student's grade to a new value and confirm the update.
+
+        Parameters:
+            new_grade (float): The new grade to assign to the student.
+
+        Prints:
+            A message indicating the old and new grade.
+        """
+        prev_grade = self.grade
+        self.grade = new_grade
+        print(f"{self.name}'s grade updated from {prev_grade} to {self.grade}")
+
+    
