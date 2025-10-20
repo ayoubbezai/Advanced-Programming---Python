@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable , List
 
 # -------------------------------
 # Exercise 1: Basic Functions
@@ -274,3 +274,165 @@ class Bird:
             "Chirp!"
         """
         print("Chirp!")
+
+
+
+# -------------------------------
+# Exercise 9: Polymorphism with Shapes
+# -------------------------------
+
+import math
+from typing import List
+
+class Shape:
+    """Base class for geometric shapes.
+
+    Methods:
+        area(): Must be implemented by subclasses. Returns the area of the shape.
+    """
+    def area(self) -> float:
+        """Area method must be implemented by subclasses."""
+        raise NotImplementedError("Subclasses must implement area() method.")
+
+
+class Circle(Shape):
+    """A circle shape defined by its radius.
+
+    Attributes:
+        radius (float): The radius of the circle.
+    """
+    def __init__(self, radius: float):
+        self.radius = radius
+
+    def area(self) -> float:
+        """Return the area of the circle."""
+        return math.pi * self.radius ** 2
+
+
+class Rectangle(Shape):
+    """A rectangle shape defined by width and height.
+
+    Attributes:
+        width (float): The width of the rectangle.
+        height (float): The height of the rectangle.
+    """
+    def __init__(self, width: float, height: float):
+        self.width = width
+        self.height = height
+
+    def area(self) -> float:
+        """Return the area of the rectangle."""
+        return self.width * self.height
+
+
+def print_shapes_area(shapes: List[Shape]) -> None:
+    """Print the area of each shape in the list.
+
+    Parameters:
+        shapes (List[Shape]): List of Shape instances (Circle, Rectangle, etc.)
+    """
+    for shape in shapes:
+        print(f"{type(shape).__name__} area: {shape.area()}")
+
+
+
+
+
+# -------------------------------
+# Exercise 10: School Management System
+# -------------------------------
+
+
+class Person:
+    """Base class representing a generic person.
+
+    Attributes:
+        name (str): Name of the person.
+        age (int): Age of the person.
+    """
+
+    def __init__(self, name: str, age: int):
+        """Initialize a Person instance.
+
+        Parameters:
+            name (str): Name of the person.
+            age (int): Age of the person.
+        """
+        self.name = name
+        self.age = age
+
+    def introduce(self) -> str:
+        """Return a generic introduction string."""
+        return f"Hello, I am {self.name}, {self.age} years old."
+
+
+class Student(Person):
+    """Represents a student, subclass of Person.
+
+    Attributes:
+        grade (float): The student's grade.
+    """
+
+    def __init__(self, name: str, age: int, grade: float):
+        """Initialize a Student instance.
+
+        Parameters:
+            name (str): Name of the student.
+            age (int): Age of the student.
+            grade (float): Student's grade.
+        """
+        super().__init__(name, age)
+        self.grade = grade
+
+    def introduce(self) -> str:
+        """Return a student-specific introduction string."""
+        return f"Hello, I am {self.name}, {self.age} years old, and my grade is {self.grade}."
+
+
+class Teacher(Person):
+    """Represents a teacher, subclass of Person.
+
+    Attributes:
+        subject (str): Subject the teacher teaches.
+    """
+
+    def __init__(self, name: str, age: int, subject: str):
+        """Initialize a Teacher instance.
+
+        Parameters:
+            name (str): Name of the teacher.
+            age (int): Age of the teacher.
+            subject (str): Subject taught by the teacher.
+        """
+        super().__init__(name, age)
+        self.subject = subject
+
+    def introduce(self) -> str:
+        """Return a teacher-specific introduction string."""
+        return f"Hello, I am {self.name}, {self.age} years old, and I teach {self.subject}."
+
+
+def introduce_all(people: List[Person]) -> None:
+    """Loop through a list of people and print their introductions.
+
+    Parameters:
+        people (List[Person]): List of Person instances (Student or Teacher).
+    """
+    for person in people:
+        print(person.introduce())
+
+
+
+
+if __name__ == "__main__":
+    shapes_list = [Circle(5), Rectangle(4, 6), Circle(3)]
+    print('exo 9 test :\n')
+    print_shapes_area(shapes_list)
+    print('exo 10 test :\n')
+    school_members = [
+        Student("Alice", 16, 88.5),
+        Teacher("Mr. Bob", 40, "Math"),
+        Student("Charlie", 17, 92.0)
+    ]
+
+    introduce_all(school_members)
