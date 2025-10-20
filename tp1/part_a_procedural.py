@@ -26,13 +26,13 @@ def ask_for_rectangle_dimensions() -> dict[str, float]:
     """
     Prompt the user to enter the dimensions of a rectangle.
 
-    The function ensures that both width and height are positive numbers,
-    and that the height is greater than or equal to the width.
+    The function ensures that both width and length are positive numbers,
+    and that the length is greater than or equal to the width.
 
     Returns:
         dict[str, float]: 
-            A dictionary containing the rectangle's width and height.  
-            Example: {'width': 4.0, 'height': 6.0}
+            A dictionary containing the rectangle's width and length.  
+            Example: {'width': 4.0, 'length': 6.0}
     """
     while True:
         try:
@@ -41,19 +41,19 @@ def ask_for_rectangle_dimensions() -> dict[str, float]:
                 print('❌ Width must be a positive number. Try again.')
                 continue
 
-            height = float(input('Enter the height: '))
-            if height <= 0:
-                print('❌ Height must be a positive number. Try again.')
+            length = float(input('Enter the length: '))
+            if length <= 0:
+                print('❌ length must be a positive number. Try again.')
                 continue
 
-            if height < width:
-                print('❌ Height must be greater than or equal to the width. Try again.')
+            if length < width:
+                print('❌ length must be greater than or equal to the width. Try again.')
                 continue
 
-            return {'width': width, 'height': height}
+            return {'width': width, 'length': length}
 
         except ValueError:
-            print('❌ Width and height must be numbers. Try again.')
+            print('❌ Width and length must be numbers. Try again.')
 
 
 def ask_for_square_dimensions() -> dict[str, float]:
@@ -82,7 +82,7 @@ def ask_for_dimensions(shape: str) -> dict[str, float | str]:
 
     Supported shapes:
         - "circle": prompts for radius
-        - "rectangle": prompts for width and height
+        - "rectangle": prompts for width and length
         - "square": prompts for side length
 
     Parameters:
@@ -93,7 +93,7 @@ def ask_for_dimensions(shape: str) -> dict[str, float | str]:
             A dictionary containing the shape name and its dimensions.  
             Examples:
                 {'shape': 'circle', 'radius': 5.0}
-                {'shape': 'rectangle', 'width': 4.0, 'height': 6.0}
+                {'shape': 'rectangle', 'width': 4.0, 'length': 6.0}
                 {'shape': 'square', 'side': 3.0}
     """
     match shape.lower():
@@ -117,7 +117,7 @@ def area_and_perimeter_calc(shape: dict[str, float | str]) -> dict[str, float | 
 
     Supported shapes:
         - "circle": uses radius
-        - "rectangle": uses width and height
+        - "rectangle": uses width and length
         - "square": uses side length
 
     Parameters:
@@ -125,7 +125,7 @@ def area_and_perimeter_calc(shape: dict[str, float | str]) -> dict[str, float | 
             A dictionary containing the shape name and its dimensions.  
             Examples:
                 {'shape': 'circle', 'radius': 5.0}
-                {'shape': 'rectangle', 'width': 4.0, 'height': 6.0}
+                {'shape': 'rectangle', 'width': 4.0, 'length': 6.0}
                 {'shape': 'square', 'side': 3.0}
 
     Returns:
@@ -133,7 +133,7 @@ def area_and_perimeter_calc(shape: dict[str, float | str]) -> dict[str, float | 
             The same shape dictionary updated with its calculated area and perimeter.  
             Examples:
                 {'shape': 'circle', 'radius': 5.0, 'area': 78.54, 'perimeter': 31.42}
-                {'shape': 'rectangle', 'width': 4.0, 'height': 6.0, 'area': 24.0, 'perimeter': 20.0}
+                {'shape': 'rectangle', 'width': 4.0, 'length': 6.0, 'area': 24.0, 'perimeter': 20.0}
                 {'shape': 'square', 'side': 3.0, 'area': 9.0, 'perimeter': 12.0}
     """
     match shape['shape']:
@@ -144,7 +144,7 @@ def area_and_perimeter_calc(shape: dict[str, float | str]) -> dict[str, float | 
 
         case 'rectangle':
             w = shape['width']
-            h = shape['height']
+            h = shape['length']
             area = w * h
             perimeter = 2 * (w + h)
 
@@ -165,7 +165,7 @@ def write_in_results_file(shape: dict[str, float | str]):
 
     This function records:
         - the shape name
-        - its specific dimensions (radius, width/height, or side)
+        - its specific dimensions (radius, width/length, or side)
         - its area
         - its perimeter
 
@@ -178,14 +178,14 @@ def write_in_results_file(shape: dict[str, float | str]):
                 - 'shape' (str): Shape name ('circle', 'rectangle', or 'square')
                 - dimensions (float): depending on the shape:
                     * 'radius' for circles
-                    * 'width' and 'height' for rectangles
+                    * 'width' and 'length' for rectangles
                     * 'side' for squares
                 - 'area' (float): calculated area
                 - 'perimeter' (float): calculated perimeter
 
     File Output Example (results.txt):
         Shape: Circle (radius=20.0), Area: 1256.6370614359173, Perimeter: 125.66370614359172
-        Shape: Rectangle (width=4.0, height=6.0), Area: 24.0, Perimeter: 20.0
+        Shape: Rectangle (width=4.0, length=6.0), Area: 24.0, Perimeter: 20.0
         Shape: Square (side=5.0), Area: 25.0, Perimeter: 20.0
     """
     with open('tp1/results.txt', 'a') as file:
@@ -199,7 +199,7 @@ def write_in_results_file(shape: dict[str, float | str]):
 
             case 'rectangle':
                 file.write(
-                    f"Shape: Rectangle (width={shape['width']}, height={shape['height']}), "
+                    f"Shape: Rectangle (width={shape['width']}, length={shape['length']}), "
                     f"Area: {shape['area']}, "
                     f"Perimeter: {shape['perimeter']}\n"
                 )
@@ -259,7 +259,7 @@ def main():
                 )
             case 'rectangle':
                 print(
-                    f"   ➤ Shape: Rectangle (width = {result['width']}, height = {result['height']})\n"
+                    f"   ➤ Shape: Rectangle (width = {result['width']}, length = {result['length']})\n"
                     f"   ➤ Area: {result['area']}\n"
                     f"   ➤ Perimeter: {result['perimeter']}\n"
                 )

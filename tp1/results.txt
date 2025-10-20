@@ -2,3 +2,8 @@ Shape: Square (side=3.0), Area: 9.0, Perimeter: 12.0
 Shape: Circle (radius=4.0), Area: 50.26548245743669, Perimeter: 25.132741228718345
 Shape: Rectangle (width=2.0, height=3.0), Area: 6.0, Perimeter: 10.0
 Shape: Square (side=5.0), Area: 25.0, Perimeter: 20.0
+Circle (radius=4.0), Area=50.26548245743669, Perimeter=25.132741228718345
+Square (side=4.0), Area=16.0, Perimeter=16.0
+Rectangle (length=5.0, width=4.0), Area=20.0, Perimeter=18.0
+Shape: Rectangle (width=6.0, length=7.0), Area: 42.0, Perimeter: 26.0
+Shape: Square (side=8.0), Area=64.0, Perimeter=32.0
