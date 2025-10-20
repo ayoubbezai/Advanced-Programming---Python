@@ -1,5 +1,3 @@
-# 🧮 Advanced Programming - TP: Object-Oriented Shape Calculator
-
 import math
 
 PI = math.pi
