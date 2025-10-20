@@ -137,4 +137,140 @@ class Student:
         self.grade = new_grade
         print(f"{self.name}'s grade updated from {prev_grade} to {self.grade}")
 
-    
+
+# -------------------------------
+# Exercise 6 & 7: Parent and Child Classes
+# -------------------------------
+
+
+
+class Person:
+    """
+    Base class representing a generic person.
+
+    Attributes:
+        name (str): Person's name.
+        age (int): Person's age.
+    """
+
+    def __init__(self, name: str, age: int):
+        """
+        Initialize a Person instance.
+
+        Parameters:
+            name (str): Name of the person.
+            age (int): Age of the person.
+        """
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        """
+        Print a generic introduction.
+
+        Prints:
+            A string like "Hello, I am <name>, <age> years old."
+        """
+        print(f"Hello, I am {self.name}, {self.age} years old.")
+
+    def work(self):
+        """
+        Generic work method.
+
+        Prints:
+            A string describing a generic activity.
+        """
+        print("Doing something generic...")
+
+
+class Teacher(Person):
+    """
+    Subclass of Person representing a teacher.
+
+    Attributes:
+        subject (str): The subject taught by the teacher.
+    """
+
+    def __init__(self, name: str, age: int, subject: str):
+        """
+        Initialize a Teacher instance.
+
+        Parameters:
+            name (str): Teacher's name.
+            age (int): Teacher's age.
+            subject (str): Subject the teacher teaches.
+        """
+        super().__init__(name, age)
+        self.subject = subject
+
+    def introduce(self):
+        """
+        Print teacher-specific introduction.
+
+        Prints:
+            A string like "Hello, I am <name>, <age> years old, and I teach <subject>."
+        """
+        print(f"Hello, I am {self.name}, {self.age} years old, and I teach {self.subject}.")
+
+    def work(self):
+        """
+        Override generic work method.
+
+        Prints:
+            A string describing teaching activity.
+        """
+        print("Teaching students...")
+
+
+# -------------------------------
+# Exercise 8: Shared Interface
+# -------------------------------
+class Dog:
+    """
+    Class representing a dog.
+
+    Methods:
+        speak(): Prints the sound a dog makes.
+    """
+    def speak(self):
+        """
+        Print the dog's sound.
+
+        Prints:
+            "Woof!"
+        """
+        print("Woof!")
+
+
+class Cat:
+    """
+    Class representing a cat.
+
+    Methods:
+        speak(): Prints the sound a cat makes.
+    """
+    def speak(self):
+        """
+        Print the cat's sound.
+
+        Prints:
+            "Meow!"
+        """
+        print("Meow!")
+
+
+class Bird:
+    """
+    Class representing a bird.
+
+    Methods:
+        speak(): Prints the sound a bird makes.
+    """
+    def speak(self):
+        """
+        Print the bird's sound.
+
+        Prints:
+            "Chirp!"
+        """
+        print("Chirp!")
