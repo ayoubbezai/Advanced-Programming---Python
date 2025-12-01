@@ -1,9 +1,4 @@
-# challenge.py
-# ---------------------------------------
-# Practical Python Exercise — Challenge
-# ---------------------------------------
-# This script demonstrates processing a small dataset
-# using different Python built-in data types.
+
 
 # Base dataset
 data = [3, 5, 3, 7, 9, 5]

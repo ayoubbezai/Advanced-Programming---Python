@@ -103,6 +103,12 @@ class Square(Rectangle):
         """Return a string representation of the square."""
         return f"Square (side={self.length})"
 
+class Trinalle(Shape):
+    def __init__(self , base , hight):
+        self.base = base ;
+        self.hight = hight
+    def area(self) -> float:
+        return (self.base * self.hight)/2
 
 # ==============================================================
 # Input Functions
