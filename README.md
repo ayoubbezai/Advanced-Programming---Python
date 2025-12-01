@@ -16,18 +16,23 @@ This course teaches Python fundamentals and object-oriented programming through 
 
 ```
 advanced-python/
-├── tp1_shape_calculator/
+├── tp1/
 │   ├── part_a_procedural.py
 │   ├── part_b_oop.py
 │   └── README.md
 │
-├── tp2_data_types/
+├── tp2/
 │   ├── data_types.py
 │   ├── challenge.py
 │   └── README.md
 │
-├── tp3_functions_classes/
+├── tp3/
 │   ├── tp3_functions_classes.py
+│   └── README.md
+│
+├── tp4/
+│   ├── regex.py
+│   ├── the-prince.txt
 │   └── README.md
 │
 └── README.md
@@ -56,8 +61,8 @@ advanced-python/
 **Supported Shapes:** Circle, Rectangle, Square
 
 ```bash
-python tp1_shape_calculator/part_a_procedural.py
-python tp1_shape_calculator/part_b_oop.py
+python tp1/part_a_procedural.py
+python tp1/part_b_oop.py
 ```
 
 ---
@@ -84,8 +89,8 @@ python tp1_shape_calculator/part_b_oop.py
 - ✅ Real dataset processing in challenge.py
 
 ```bash
-python tp2_data_types/data_types.py
-python tp2_data_types/challenge.py
+python tp2/data_types.py
+python tp2/challenge.py
 ```
 
 ---
@@ -110,7 +115,24 @@ python tp2_data_types/challenge.py
 | 10 | School management system | Complete OOP hierarchy |
 
 ```bash
-python tp3_functions_classes/tp3_functions_classes.py
+python tp3/tp3_functions_classes.py
+```
+
+---
+
+### 🔍 TP4 – Regular Expressions Toolkit
+
+**Topics:** Text mining, pattern design, extraction helpers, regex debugging
+
+**Highlights:**
+- ✅ File reading with graceful fallback when the corpus is missing
+- ✅ Four focused helpers: years, capitalized tokens, full names, quoted dialogs
+- ✅ Regex cheatsheet documented in `tp4/README.md`
+- ✅ Screenshots and slides (`function.png`, `pattern.png`, `RegEx.pdf`) for quick review
+- ✅ Simple CLI run to test new patterns against `the-prince.txt`
+
+```bash
+python tp4/regex.py
 ```
 
 ---
@@ -119,15 +141,18 @@ python tp3_functions_classes/tp3_functions_classes.py
 
 ```bash
 # TP1 - Shape Calculator
-python tp1_shape_calculator/part_a_procedural.py
-python tp1_shape_calculator/part_b_oop.py
+python tp1/part_a_procedural.py
+python tp1/part_b_oop.py
 
 # TP2 - Data Types
-python tp2_data_types/data_types.py
-python tp2_data_types/challenge.py
+python tp2/data_types.py
+python tp2/challenge.py
 
 # TP3 - Functions and Classes
-python tp3_functions_classes/tp3_functions_classes.py
+python tp3/tp3_functions_classes.py
+
+# TP4 - Regular Expressions Toolkit
+python tp4/regex.py
 ```
 
 ---
@@ -149,11 +174,12 @@ python tp3_functions_classes/tp3_functions_classes.py
 - **Functional Programming:** Lambda, map, filter, closures
 - **Error Handling:** Input validation and exception management
 - **Type Hints & Documentation:** Professional code standards
+- **Regex & Text Mining:** Pattern design, token extraction, corpus analysis
 
 ---
 
 ## 🧠 Learning Progression
 
-**TP1 → TP2 → TP3**
+**TP1 → TP2 → TP3 → TP4**
 
-From procedural functions to complete object-oriented systems, with focus on data structures and design patterns.
+From procedural functions to complete object-oriented systems, then onward to text mining and regex-driven data extraction.
